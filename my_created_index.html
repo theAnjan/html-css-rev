@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Calculator</title>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="input-wrapper">
+            <input id="display" type="text">
+        </div>
+        <div class="button-wrapper">
+            <div class="row">
+                <button onclick="handleClick('1')">1</button>
+                <button onclick="handleClick('2')">2</button>
+                <button onclick="handleClick('3')">3</button>
+                <button onclick="handleClick('/')">/</button>
+            </div>
+            <div class="row">
+                <button onclick="handleClick('4')">4</button>
+                <button onclick="handleClick('5')">5</button>
+                <button onclick="handleClick('6')">6</button>
+                <button onclick="handleClick('*')">*</button>  
+                
+            </div>
+            <div class="row">
+                <button onclick="handleClick('7')">7</button>
+                <button onclick="handleClick('8')">8</button>
+                <button onclick="handleClick('9')">9</button>
+                <button onclick="handleClick('-')">-</button>
+            </div>
+            <div class="row">
+                <button onclick="handleClear('')">c</button>
+                <button onclick="handleClick('0')">1</button>
+                <button onclick="handleClick('+')">+</button>
+                <button onclick="handleEquals('')">=</button>
+            </div>
+        </div>
+    </div>
+  
+
+</body>
+
+<script>
+    let display = document.getElementById('display');
+    let operatorCount = 0;
+    function handleClick(value){
+        if(value == "+" || value == "-" || value == "+" || value == "-") {
+            operatorCount = operatorCount + 1 ;
+            if(operatorCount == 1) {
+                display.value = display.value + value;
+
+            }else {
+                display.value = eval(display.value) + value;
+            }
+
+
+
+        } else {display.value = display.value + value;}
+        // alert("hellow world" + value);}
+        
+    }
+    function handleClear() {
+        display.value = '';
+    }
+
+    function handleEquals() {
+        display.value = eval(display.value);
+    }
+</script>
+</html>
